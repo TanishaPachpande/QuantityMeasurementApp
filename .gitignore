@@ -2,4 +2,4 @@
 .classpath
 .project
 /target/
-*.log
+*.log  
