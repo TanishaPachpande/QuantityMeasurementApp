@@ -1,17 +1,5 @@
-# Eclipse specific files
-.metadata/
-.settings/
+/target/
 .classpath
 .project
-
-# Java build output
-bin/
-target/
-
-# Logs
+.settings/
 *.log
-
-# OS generated files
-.DS_Store
-Thumbs.do
-*.class
