@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Quantity<U extends IMeasurable> {
 
 	private final double value; // value of quantity
-	private final U unit; // unit type
+	private final U unit; // unit type   
 
 	public Quantity(double value, U unit) {
 		if (unit == null)
