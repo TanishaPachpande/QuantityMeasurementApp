@@ -73,6 +73,6 @@ that:
 
 - Large & small scale conversions
 
-Zero & negative values
+- Zero & negative values
 
-Precision tolerance (epsilon comparison)
+- Precision tolerance (epsilon comparison)
