@@ -32,6 +32,7 @@
 - Difficult to scale for future operations
 
 🛠 **Solution in UC13:**
+
 1️⃣ ArithmeticOperation Enum
 
 Handles operation logic:
