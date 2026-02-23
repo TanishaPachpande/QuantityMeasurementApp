@@ -26,7 +26,8 @@ This improves scalability, maintainability, and architecture.
 - Maintain full backward compatibility (UC1–UC7)
 
 ⚙️ **Refactored Design:**
-🔹 LengthUnit (Standalone Enum)
+
+ 🔹 LengthUnit (Standalone Enum)
 
    Responsible for:
 
@@ -38,7 +39,7 @@ This improves scalability, maintainability, and architecture.
 
    Each unit stores its conversion factor and knows how to convert itself.
 
-🔹 QuantityLength (Simplified)
+ 🔹 QuantityLength (Simplified)
 
   Now:
 
@@ -80,7 +81,6 @@ This improves scalability, maintainability, and architecture.
 
 - Round-trip conversion precision maintained
 
-
-
-Each unit enum handles its own conversions.
-Each Quantity class handles only domain logic.
+- Each unit enum handles its own conversions.
+- 
+- Each Quantity class handles only domain logic.
