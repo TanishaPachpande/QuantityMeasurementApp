@@ -57,6 +57,6 @@ Works across Length, Weight, and Volume without modifying existing architecture.
 
 - Generic scalability
 
-SOLID consistency
+- SOLID consistency
 
-Arithmetic integration with existing system
+- Arithmetic integration with existing system
