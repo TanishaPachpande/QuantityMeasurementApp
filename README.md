@@ -65,6 +65,6 @@ Example:
 
 - Negative values
 
-Large & small numbers
+- Large & small numbers
 
-Null handling
+- Null handling
