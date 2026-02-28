@@ -1,7 +1,5 @@
 # QuantityMeasurementApp
 
-# Quantity Measurement App
-
 ## Project Overview
 
 The **Quantity Measurement App** is a Test-Driven Development (TDD)-based project designed to demonstrate how to build scalable and maintainable software by starting simple and progressively adding complexity through Use Cases (UCs).  
