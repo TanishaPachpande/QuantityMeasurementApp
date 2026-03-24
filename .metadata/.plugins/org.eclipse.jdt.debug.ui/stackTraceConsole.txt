@@ -1,0 +1,12 @@
+java.lang.ExceptionInInitializerError
+	at com.apps.util.ConnectionPool.getConnection(ConnectionPool.java:12)
+	at com.apps.repository.QuantityMeasurementDatabaseRepository.createTableIfNotExists(QuantityMeasurementDatabaseRepository.java:31)
+	at com.apps.repository.QuantityMeasurementDatabaseRepository.<init>(QuantityMeasurementDatabaseRepository.java:14)
+	at com.apps.QuantityMeasurementAppTest.testDatabaseRepository_SaveEntity(QuantityMeasurementAppTest.java:1396)
+Caused by: java.lang.RuntimeException: Failed to load application.properties
+	at com.apps.util.ApplicationConfig.<clinit>(ApplicationConfig.java:23)
+	... 4 more
+Caused by: java.lang.RuntimeException: application.properties file not found
+	at com.apps.util.ApplicationConfig.<clinit>(ApplicationConfig.java:17)
+	... 4 more
+

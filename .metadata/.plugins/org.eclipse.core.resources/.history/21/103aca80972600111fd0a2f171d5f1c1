@@ -1,0 +1,5 @@
+package com.apps.entity;
+
+public class QuantityMeasurementEntity {
+
+}
