@@ -1,0 +1,26 @@
+package com.servlet;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/submitForm")
+public class ServletClass extends HttpServlet {
+	
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+		String myName= req.getParameter("username");
+		String myEmail=req.getParameter("email");
+		
+		req.setAttribute("username", myName);
+		
+		System.out.println("Name: "+myName);
+		System.out.println("Email: "+myEmail);
+		
+		req.getRequestDispatcher("/profile.jsp").forward(req, res);
+	}
+}

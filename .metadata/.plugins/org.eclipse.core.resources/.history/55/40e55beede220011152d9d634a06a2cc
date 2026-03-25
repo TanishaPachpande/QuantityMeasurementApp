@@ -1,0 +1,54 @@
+package com.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.db.DatabaseConnection;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/logForm")
+public class LoginServlet extends HttpServlet {
+	
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException{
+		PrintWriter out = res.getWriter();
+		
+		String myName=req.getParameter("name");
+		String myPassword=req.getParameter("password");
+		
+		DatabaseConnection db = new DatabaseConnection();
+		try {
+			Connection con = db.getConnection();
+
+			String search_query = "select * from registeredUsers where name=? and myPass=?";
+
+			PreparedStatement ps = con.prepareStatement(search_query);
+			ps.setString(1, myName);
+			ps.setString(2, myPassword);
+
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				out.println("<h3 style='color:green'>Logged In Successfully!!</h3>");
+				RequestDispatcher rd = req.getRequestDispatcher("./Profile.jsp");
+				rd.include(req, res);
+			} else {
+				out.println("<h3 style='color:red'>Invalid Name or Password!!</h3>");
+				RequestDispatcher rd = req.getRequestDispatcher("./login.html");
+				rd.include(req, res);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
