@@ -5,6 +5,11 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 
 # ===============================
+# Eclipse Workspace Metadata
+# ===============================
+.metadata/
+
+# ===============================
 # Maven Wrapper (KEEP these tracked)
 # ===============================
 # DO NOT IGNORE:
