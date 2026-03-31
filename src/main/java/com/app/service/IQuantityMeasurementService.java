@@ -3,6 +3,8 @@ package com.app.service;
 import com.app.dto.QuantityInputDTO;
 import com.app.dto.QuantityMeasurementDTO;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 public interface IQuantityMeasurementService {
@@ -32,5 +34,6 @@ public interface IQuantityMeasurementService {
 
     // Get all errored measurements
     List<QuantityMeasurementDTO> getErrorHistory();
+
 
 }

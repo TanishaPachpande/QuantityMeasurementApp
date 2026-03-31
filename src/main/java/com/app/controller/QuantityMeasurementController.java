@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/quantities")
 @Tag(name = "Quantity Measurements", description = "REST API for quantity measurement operations")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class QuantityMeasurementController {
 
     @Autowired
@@ -110,6 +110,8 @@ public class QuantityMeasurementController {
             return ResponseEntity.badRequest().body(error);
         }
     }
+    
+    
 
     // ================= HISTORY BY OPERATION =================
 

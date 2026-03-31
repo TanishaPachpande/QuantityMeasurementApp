@@ -304,4 +304,8 @@ public class QuantityMeasurementServiceImpl implements IQuantityMeasurementServi
         return QuantityMeasurementDTO.fromEntityList(entities);
     }
 
+	
+
+    
+
 }
