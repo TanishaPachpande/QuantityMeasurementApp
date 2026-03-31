@@ -37,5 +37,7 @@ public interface IQuantityMeasurementService {
 
 	QuantityMeasurementDTO multiply(QuantityInputDTO input);
 
+	void clearAllHistory();
+
 
 }

@@ -171,5 +171,18 @@ public class QuantityMeasurementController {
             return ResponseEntity.badRequest().build();
         }
     }
+    
+ // Inside QuantityMeasurementController.java
+
+    @DeleteMapping("/history/clear")
+    @Operation(summary = "Clear all measurement history")
+    public ResponseEntity<String> clearHistory() {
+        try {
+            service.clearAllHistory(); // You may need to add this method to your Service
+            return ResponseEntity.ok("History cleared successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Failed to clear history: " + e.getMessage());
+        }
+    }
 
 }

@@ -336,6 +336,13 @@ public class QuantityMeasurementServiceImpl implements IQuantityMeasurementServi
         return dto;
     }
 
+    @Override
+    public void clearAllHistory() {
+        repository.deleteAll(); 
+        
+        System.out.println("All measurement history has been cleared from the database.");
+    }
+
     
 
 }

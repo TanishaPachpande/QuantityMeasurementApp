@@ -46,7 +46,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
             	    .requestMatchers(
             	            "/auth/**",
-            	            "/api/v1/quantities/**", // ADD THIS LINE: Allows calculation without JWT
+            	            "/api/v1/quantities/**", //  Allows calculation without JWT
             	            "/swagger-ui/**",
             	            "/swagger-ui.html",
             	            "/v3/api-docs/**",
