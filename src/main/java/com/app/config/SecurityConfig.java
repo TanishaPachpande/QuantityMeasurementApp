@@ -43,16 +43,17 @@ public class SecurityConfig {
             }))
 
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                        "/auth/**",
-                        "/swagger-ui/**",
-                        "/swagger-ui.html",
-                        "/v3/api-docs/**",
-                        "/api-docs/**",
-                        "/h2-console/**"
-                ).permitAll()
-                .anyRequest().authenticated()
-            )
+            	    .requestMatchers(
+            	            "/auth/**",
+            	            "/api/v1/quantities/**", // ADD THIS LINE: Allows calculation without JWT
+            	            "/swagger-ui/**",
+            	            "/swagger-ui.html",
+            	            "/v3/api-docs/**",
+            	            "/api-docs/**",
+            	            "/h2-console/**"
+            	    ).permitAll()
+            	    .anyRequest().authenticated()
+            	)
 
             .oauth2Login(oauth -> oauth
             	    .successHandler(oAuth2SuccessHandler)
