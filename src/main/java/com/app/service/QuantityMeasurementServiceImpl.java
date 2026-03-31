@@ -304,7 +304,37 @@ public class QuantityMeasurementServiceImpl implements IQuantityMeasurementServi
         return QuantityMeasurementDTO.fromEntityList(entities);
     }
 
-	
+    @Override
+    @SuppressWarnings("unchecked")
+    public QuantityMeasurementDTO multiply(QuantityInputDTO input) {
+        // 1. Convert DTOs to Models
+        Quantity<?> q1 = convertDtoToModel(input.getThisQuantityDTO());
+        Quantity<?> q2 = convertDtoToModel(input.getThatQuantityDTO());
+
+        // 2. Build response DTO
+        QuantityMeasurementDTO dto = buildBaseDTO(input, q1, q2, "multiply");
+
+        try {
+            // 3. Category Check
+            if (!q1.getUnit().getClass().equals(q2.getUnit().getClass())) {
+                throw new QuantityMeasurementException("Incompatible types for multiplication");
+            }
+
+            // 4. Calculate (Calls the method we added to Quantity.java)
+            double result = ((Quantity) q1).multiply((Quantity) q2);
+
+            dto.setResultValue(result);
+            dto.setResultMeasurementType(getMeasurementType(q1));
+            dto.setError(false);
+
+        } catch (Exception e) {
+            dto.setErrorMessage("Multiply Error: " + e.getMessage());
+            dto.setError(true);
+        }
+
+        saveToRepository(dto);
+        return dto;
+    }
 
     
 

@@ -35,10 +35,11 @@ public class SecurityConfig {
             // 1. ADDED CORS CONFIGURATION HERE
             .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration config = new CorsConfiguration();
-                config.setAllowedOrigins(List.of("http://localhost:5173")); // React/Vite Port
+                // Use List.of with your specific ports instead of "*"
+                config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:5174")); 
                 config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                 config.setAllowedHeaders(List.of("*"));
-                config.setAllowCredentials(true);
+                config.setAllowCredentials(true); 
                 return config;
             }))
 
