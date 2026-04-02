@@ -89,3 +89,4 @@ coverage/
 .factorypath
 .gitattributes
 HELP.md
+.metadata/
