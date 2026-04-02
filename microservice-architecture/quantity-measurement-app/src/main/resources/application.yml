@@ -7,9 +7,9 @@ spring:
 
   # MySQL Database
   datasource:
-    url: jdbc:mysql://localhost:3306/quantity_db
+    url: jdbc:mysql://localhost:3306/quantityDb
     username: root
-    password: savi2026
+    password: mysql@123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   # JPA / Hibernate
@@ -24,7 +24,7 @@ spring:
 
 # JWT (same secret as security-service for token validation)
 jwt:
-  secret: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
+  secret: d3070215bf7c78ac7b7d85de0abf8ffeb164866576cf6b6eb1ac1c631d330ae5
   expiration: 86400000
 
 # Eureka Client
