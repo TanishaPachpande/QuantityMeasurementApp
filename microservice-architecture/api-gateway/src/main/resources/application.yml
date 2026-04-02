@@ -7,35 +7,34 @@ spring:
 
   cloud:
     gateway:
-      # Global CORS for all routes
+      # Fixes the CORS handshake between React (5173) and Gateway (8080)
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins:
-              - "http://localhost:5173"
+            allowedOrigins: "http://localhost:5173"
             allowedMethods:
               - GET
               - POST
               - PUT
               - DELETE
               - OPTIONS
-            allowedHeaders:
-              - "*"
+            allowedHeaders: "*"
             allowCredentials: true
 
       routes:
-
-        # ===== security-service routes (PUBLIC — no JWT check) =====
+        # ===== security-service routes (Auth is Public) =====
         - id: security-service-auth
           uri: lb://security-service
           predicates:
             - Path=/auth/**
+          # Ensure your filter name matches your Java class exactly
+          # Some Gateway versions require 'args' to be explicitly defined like this:
           filters:
             - name: JwtAuthenticationFilter
               args:
                 secured: false
 
-        # ===== quantity-measurement-app routes (SECURED — JWT required) =====
+        # ===== quantity-measurement-app routes (Secured) =====
         - id: quantity-measurement-app
           uri: lb://quantity-measurement-app
           predicates:
@@ -45,7 +44,7 @@ spring:
               args:
                 secured: true
 
-# JWT secret (same as security-service and quantity-service)
+# JWT secret (Ensure this is identical across all 3 services)
 jwt:
   secret: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
 
@@ -55,9 +54,10 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
+    hostname: localhost
     prefer-ip-address: true
 
-# Actuator
+# Exposure for debugging
 management:
   endpoints:
     web:
