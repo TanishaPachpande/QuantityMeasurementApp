@@ -296,12 +296,12 @@ public class QuantityMeasurementServiceImpl implements IQuantityMeasurementServi
 
     @Override
     public long getOperationCount(String operation) {
-        return repository.countByOperationAndIsErrorFalse(operation.toLowerCase());
+        return repository.countByOperationAndErrorFalse(operation.toLowerCase());
     }
 
     @Override
     public List<QuantityMeasurementDTO> getErrorHistory() {
-        List<QuantityMeasurementEntity> entities = repository.findByIsErrorTrue();
+        List<QuantityMeasurementEntity> entities = repository.findByErrorTrue();
         return QuantityMeasurementDTO.fromEntityList(entities);
     }
 
@@ -344,6 +344,9 @@ public class QuantityMeasurementServiceImpl implements IQuantityMeasurementServi
         System.out.println("All measurement history has been cleared from the database.");
     }
 
-    
+    @Override
+    public List<QuantityMeasurementDTO> getAllHistory() {
+        return QuantityMeasurementDTO.fromEntityList(repository.findAll());
+    }
 
 }

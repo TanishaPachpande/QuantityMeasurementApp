@@ -23,13 +23,13 @@ public interface QuantityMeasurementRepository extends JpaRepository<QuantityMea
     List<QuantityMeasurementEntity> findByCreatedAtAfter(LocalDateTime date);
 
     // Custom JPQL query - find successful operations by type
-    @Query("SELECT q FROM QuantityMeasurementEntity q WHERE q.operation = :operation AND q.isError = false")
+    @Query("SELECT q FROM QuantityMeasurementEntity q WHERE q.operation = :operation AND q.error = false")
     List<QuantityMeasurementEntity> findSuccessfulByOperation(@Param("operation") String operation);
 
     // Count successful operations by type
-    long countByOperationAndIsErrorFalse(String operation);
+    long countByOperationAndErrorFalse(String operation);
 
-    // Find all errored measurements
-    List<QuantityMeasurementEntity> findByIsErrorTrue();
+
+    List<QuantityMeasurementEntity> findByErrorTrue();
 
 }

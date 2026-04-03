@@ -63,7 +63,7 @@ public class QuantityMeasurementEntity {
     private String errorMessage;
 
     @Column(name = "is_error", nullable = false)
-    private boolean isError;
+    private boolean error;
 
     @Column(name = "created_at", nullable = true)
     private LocalDateTime createdAt;

@@ -17,7 +17,7 @@ import com.security.model.User;
 import com.security.repository.UserRepository;
 import com.security.service.JwtService;
 
-@CrossOrigin(origins = "http://localhost:5174")
+
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor

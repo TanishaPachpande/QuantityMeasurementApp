@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/quantities")
 @Tag(name = "Quantity Measurements", description = "REST API for quantity measurement operations")
-@CrossOrigin(origins = "http://localhost:5174")
+//@CrossOrigin(origins = "http://localhost:5173")
 public class QuantityMeasurementController {
 
     @Autowired
@@ -115,6 +115,18 @@ public class QuantityMeasurementController {
 
     // ================= HISTORY BY OPERATION =================
 
+    // Add this to QuantityMeasurementController.java
+    @GetMapping("/history")
+    @Operation(summary = "Get all quantity measurement history")
+    public ResponseEntity<List<QuantityMeasurementDTO>> getAllHistory() {
+        try {
+            List<QuantityMeasurementDTO> result = service.getAllHistory();
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
     @GetMapping("/history/operation/{operation}")
     @Operation(summary = "Get quantity measurement history by operation type")
     public ResponseEntity<List<QuantityMeasurementDTO>> getHistoryByOperation(
@@ -184,5 +196,7 @@ public class QuantityMeasurementController {
             return ResponseEntity.status(500).body("Failed to clear history: " + e.getMessage());
         }
     }
+
+
 
 }

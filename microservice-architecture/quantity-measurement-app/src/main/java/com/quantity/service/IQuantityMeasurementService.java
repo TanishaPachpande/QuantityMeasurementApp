@@ -41,4 +41,5 @@ public interface IQuantityMeasurementService {
 	void clearAllHistory();
 
 
+    List<QuantityMeasurementDTO> getAllHistory();
 }
